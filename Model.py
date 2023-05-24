@@ -21,7 +21,7 @@ class Book(Base):
     title = sq.Column(sq.String(length=50), nullable=False)
     id_publisher = sq.Column(sq.Integer, sq.ForeignKey('publisher.id'), nullable=False)
 
-    publisher = relationship(Publisher, backref='books')
+    publisher = relationship(Publisher, backref='book')
 
     def __str__(self):
         return f'book {self.id} : ({self.title}, {self.id_publisher})'
