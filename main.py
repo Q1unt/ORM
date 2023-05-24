@@ -2,9 +2,13 @@ import sqlalchemy
 from Model import create_table, Publisher, Stock, Shop, Sale, Book
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
+import os
+from dotenv import find_dotenv, load_dotenv
 
-DSN = 'postgresql://postgres:x26n06dimon26@localhost:5432/base_orm'
-engine = sqlalchemy.create_engine(DSN)
+load_dotenv(find_dotenv())
+
+DNS = os.getenv('DSN')
+engine = sqlalchemy.create_engine(DNS)
 
 create_table(engine)
 
